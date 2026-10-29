@@ -32,8 +32,9 @@ A calm, trustworthy-feeling property marketplace that helps first-time buyers an
 ### Administrator
 
 1. Sign in using a seeded/admin-configured account.
-2. Review users and listings with availability/status.
-3. Deactivate a listing and retain the record for audit/recovery.
+2. Search/filter the expanded listing inventory by title, location, owner and status.
+3. Add a listing, assign it to an existing account, and publish it into public search.
+4. Deactivate a listing for reversible moderation or permanently delete it with dependent favourites and inquiries after explicit confirmation.
 
 ## MVP screens
 

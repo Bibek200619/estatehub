@@ -16,7 +16,7 @@ Primary users: buyers, renters, property owners/sellers/agents, and administrato
 - Show comparable, complete listing information: price, location, category, area, rooms, images, amenities, availability and contact route.
 - Let seekers save favourites and submit inquiries, with inquiry records available to the relevant parties.
 - Let providers create, edit, publish/unpublish and manage their property listings.
-- Give administrators controls to review users/listings and remove inappropriate or outdated listings.
+- Give administrators controls to review users/listings, create listings for an existing owner, deactivate/restore records, and permanently delete inappropriate or outdated listings.
 
 ## MVP requirements mapped to implementation
 

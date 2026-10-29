@@ -238,6 +238,28 @@ app.get('/api/admin/properties', requireUser, requireAdmin, (_req,res) => {
   const rows = db.prepare(`${selectProperty} ORDER BY p.updated_at DESC`).all() as Record<string, unknown>[];
   res.json({ properties: rows.map(propertyRecord) });
 });
+app.post('/api/admin/properties', requireUser, requireAdmin, (req,res) => {
+  const parsed = propertySchema.extend({ ownerId:z.coerce.number().int().positive() }).safeParse(req.body);
+  if (!parsed.success) return res.status(400).json({ error:parsed.error.issues[0]?.message ?? 'Review the listing details.' });
+  const { ownerId,...p } = parsed.data;
+  if (!db.prepare('SELECT id FROM users WHERE id=?').get(ownerId)) return res.status(400).json({ error:'Choose an existing listing owner.' });
+  const result = db.prepare(`INSERT INTO properties(owner_id,title,description,type,transaction_type,price,address,city,area_sqft,bedrooms,bathrooms,amenities_json,image_urls_json,availability)
+    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(ownerId,p.title,p.description,p.type,p.transaction,p.price,p.address,p.city,p.areaSqft,p.bedrooms,p.bathrooms,JSON.stringify(p.amenities),JSON.stringify(p.imageUrls),p.availability);
+  res.status(201).json({ id:Number(result.lastInsertRowid) });
+});
+app.delete('/api/admin/properties/:id', requireUser, requireAdmin, (req,res) => {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id < 1) return res.status(400).json({ error:'Invalid property id.' });
+  const remove = db.transaction(() => {
+    if (!db.prepare('SELECT id FROM properties WHERE id=?').get(id)) return false;
+    db.prepare('DELETE FROM inquiries WHERE property_id=?').run(id);
+    db.prepare('DELETE FROM favourites WHERE property_id=?').run(id);
+    db.prepare('DELETE FROM properties WHERE id=?').run(id);
+    return true;
+  });
+  if (!remove()) return res.status(404).json({ error:'Property not found.' });
+  res.json({ ok:true });
+});
 app.patch('/api/admin/properties/:id/status', requireUser, requireAdmin, (req,res) => {
   const parsed = z.object({ active:z.boolean() }).safeParse(req.body);
   if (!parsed.success) return res.status(400).json({ error:'Invalid moderation status.' });
