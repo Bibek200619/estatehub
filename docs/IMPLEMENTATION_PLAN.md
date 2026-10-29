@@ -2,13 +2,13 @@
 
 ## Milestones
 
-1. **Understand and prepare (complete):** inspect all 13 PPT slides and embedded visuals; extract requirements; research product patterns and official framework/security docs; choose MVP and stack; initialize planning documents.
-2. **Repository and foundation:** create GitHub repository; initialize local React/Vite + Express/SQLite project; add scripts, linting, env example, gitignore, schema and seed data; create tracking issues and feature branch.
-3. **Discovery experience:** implement responsive home, search/filter/sort, cards and property detail API/UI; verify mobile/desktop and empty/error states.
-4. **Accounts and seeker workflows:** implement sessions, signup/login/logout, favourites and inquiry submission/history with authorization.
-5. **Provider/admin workflows:** implement listing create/edit/availability and inquiry management; admin moderation with role checks.
-6. **Quality and documentation:** run unit/API/browser/build/lint checks; inspect browser rendering and major interactions; fix regressions; complete setup/demo README and screenshots/guide.
-7. **GitHub integration:** issues linked to feature branches/commits/PRs; review diffs and checks; merge into `main` if repository rules permit; verify integrated build.
+1. **Understand and prepare (complete):** inspect all 13 PPT slides and embedded visuals; extract requirements; research product patterns, React/Express guidance and WCAG; choose MVP and stack; initialize planning documents.
+2. **Repository and foundation (complete):** public `Bibek200619/estatehub` repository created; local React/Vite + Express/SQLite project initialized; scripts, environment example, gitignore, schema, seed data and GitHub issue tracking are in place.
+3. **Discovery experience (complete):** responsive home, search/filter/sort, cards and property detail API/UI implemented; browser search and details verified.
+4. **Accounts and seeker workflows (complete):** persisted sessions, register/login/logout, favourites and inquiry submission/history with authorization implemented and API tested.
+5. **Provider/admin workflows (complete):** listing create/edit/availability, inquiry management and admin moderation implemented; provider form and dashboard verified in browser.
+6. **Quality and documentation (complete):** API integration tests, lint, TypeScript/build, npm audit and browser workflows executed; README and demo guide written. Visual inspection covered a narrow mobile viewport; dedicated WCAG conformance and multiple desktop viewport testing remain follow-up checks.
+7. **GitHub integration (in progress):** push the implementation branch, open an issue-linked PR, inspect checks/protections, merge into `main` if permitted, and verify the integrated result.
 
 ## Work items and acceptance checkpoints
 
