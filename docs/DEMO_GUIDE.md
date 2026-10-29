@@ -4,7 +4,7 @@
 
 1. Run `npm ci`, copy `.env.example` to `.env`, then run `npm run seed` and `npm run dev`.
 2. Open `http://localhost:5173` and confirm the listing photography has loaded.
-3. Use the demo role accounts and local demo password shown in the README. Do not use the shared demo password outside a local demonstration.
+3. Use the demo role accounts and the password configured in your local `.env`. Never commit or publish that password.
 
 ## Suggested 5-minute walkthrough
 

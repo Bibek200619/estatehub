@@ -2,8 +2,8 @@ import 'dotenv/config';
 import { randomBytes, scryptSync } from 'node:crypto';
 import { db } from './db.js';
 
-const password = process.env.DEMO_SEED_PASSWORD ?? 'EstateHubDemo!2026';
-if (password.length < 12) throw new Error('DEMO_SEED_PASSWORD must contain at least 12 characters.');
+const password = process.env.DEMO_SEED_PASSWORD ?? '';
+if (password.length < 12) throw new Error('Set DEMO_SEED_PASSWORD in .env to a local password of at least 12 characters before seeding.');
 const hashPassword = (value: string) => {
   const salt = randomBytes(16).toString('hex');
   return `${salt}:${scryptSync(value, salt, 64).toString('hex')}`;

@@ -34,21 +34,22 @@ The three-layer flow is React UI → same-origin Express JSON API → validated 
 cd estatehub
 npm ci
 cp .env.example .env
+# Edit .env and set DEMO_SEED_PASSWORD to a local password of at least 12 characters.
 npm run seed
 npm run dev
 ```
 
 The client starts at [http://localhost:5173](http://localhost:5173); the API runs at [http://localhost:3001/api/health](http://localhost:3001/api/health). Vite proxies API requests during development.
 
-Seeded sign-in accounts:
+Seeded sign-in accounts (all use the password you set in your local `.env`):
 
 | Role | Email | Password |
 |---|---|---|
-| Seeker | `maya@estatehub.demo` | Value of `DEMO_SEED_PASSWORD` (default: `EstateHubDemo!2026`) |
+| Seeker | `maya@estatehub.demo` | Value of `DEMO_SEED_PASSWORD` |
 | Provider | `arjun@estatehub.demo` | Value of `DEMO_SEED_PASSWORD` |
 | Admin | `admin@estatehub.demo` | Value of `DEMO_SEED_PASSWORD` |
 
-Change `DEMO_SEED_PASSWORD` in `.env` before creating seed accounts for a shared demo. Seeding is idempotent and does not rotate existing passwords. To reset the local demo database, stop the app, remove `data/estatehub.sqlite` and its `-shm`/`-wal` files, then run `npm run seed` again. Do not use the sample accounts or password in a public production environment.
+Set `DEMO_SEED_PASSWORD` in `.env` to a local password of at least 12 characters before creating seed accounts. The example file leaves it blank so no shared credential is committed. Seeding is idempotent and does not rotate existing passwords. To reset the local demo database, stop the app, remove `data/estatehub.sqlite` and its `-shm`/`-wal` files, then run `npm run seed` again. Do not use sample accounts in a public production environment.
 
 ## Environment variables
 
@@ -57,7 +58,7 @@ Change `DEMO_SEED_PASSWORD` in `.env` before creating seed accounts for a shared
 | `PORT` | Express port | `3001` |
 | `DATABASE_PATH` | SQLite database file | `./data/estatehub.sqlite` |
 | `NODE_ENV` | Runtime mode (`development` / `production`) | development |
-| `DEMO_SEED_PASSWORD` | Password set when demo accounts are first created | `EstateHubDemo!2026` |
+| `DEMO_SEED_PASSWORD` | Password set when demo accounts are first created | Set locally before running `npm run seed` |
 
 `.env` and database files are gitignored. For production, set `NODE_ENV=production` and use secure HTTPS. Sessions use random opaque tokens stored as hashes, so the app does not use a separate signing secret. Never publish credentials.
 
