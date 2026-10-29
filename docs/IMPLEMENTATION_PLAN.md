@@ -8,7 +8,7 @@
 4. **Accounts and seeker workflows (complete):** persisted sessions, register/login/logout, favourites and inquiry submission/history with authorization implemented and API tested.
 5. **Provider/admin workflows (complete):** listing create/edit/availability, inquiry management and admin moderation implemented; provider form and dashboard verified in browser.
 6. **Quality and documentation (complete):** API integration tests, lint, TypeScript/build, npm audit and browser workflows executed; README and demo guide written. Visual inspection covered a narrow mobile viewport; dedicated WCAG conformance and multiple desktop viewport testing remain follow-up checks.
-7. **GitHub integration (in progress):** push the implementation branch, open an issue-linked PR, inspect checks/protections, merge into `main` if permitted, and verify the integrated result.
+7. **GitHub integration (complete):** PR #8 merged into `main` as `5c3556c`; all five implementation issues closed. GitGuardian and the CI quality workflow passed before merge. The integrated `main` checkout was retested after merge: 2 API tests passed, lint/build passed, and `npm audit` found 0 vulnerabilities. The repository has no protected-branch rule configured. The demo is running locally with 10 fictional seed listings and a local-only password in `.env`.
 
 ## Work items and acceptance checkpoints
 
