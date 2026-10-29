@@ -6,7 +6,7 @@
 2. **Repository and foundation (complete):** public `Bibek200619/estatehub` repository created; local React/Vite + Express/SQLite project initialized; scripts, environment example, gitignore, schema, seed data and GitHub issue tracking are in place.
 3. **Discovery experience (complete):** responsive home, search/filter/sort, cards and property detail API/UI implemented; browser search and details verified.
 4. **Accounts and seeker workflows (complete):** persisted sessions, register/login/logout, favourites and inquiry submission/history with authorization implemented and API tested.
-5. **Provider/admin workflows (complete):** listing create/edit/availability, inquiry management and admin moderation implemented; provider form and dashboard verified in browser.
+5. **Provider/admin workflows (complete):** listing create/edit/availability, inquiry management, admin create/delete and moderation implemented; provider form and dashboard verified in browser. Demo inventory expanded to 30 varied Bengaluru listings.
 6. **Quality and documentation (complete):** API integration tests, lint, TypeScript/build, npm audit and browser workflows executed; README and demo guide written. Visual inspection covered a narrow mobile viewport; dedicated WCAG conformance and multiple desktop viewport testing remain follow-up checks.
 7. **GitHub integration (complete):** PR #8 merged into `main` as `5c3556c`; all five implementation issues closed. GitGuardian and the CI quality workflow passed before merge. The integrated `main` checkout was retested after merge: 2 API tests passed, lint/build passed, and `npm audit` found 0 vulnerabilities. The repository has no protected-branch rule configured. The demo is running locally with 10 fictional seed listings and a local-only password in `.env`.
 
@@ -17,7 +17,7 @@
 - Property browsing: filters combine correctly, sort stable, detail fields complete.
 - Seeker actions: auth required, favourites persist, inquiry visible only to authorized parties.
 - Provider dashboard: CRUD ownership enforced, availability updates public search.
-- Admin dashboard: admin-only list/review/deactivation; audit-friendly soft removal.
+- Admin dashboard: admin-only listing search/status filters, owner-assigned creation, reversible deactivation/restoration and confirmed permanent deletion with dependent data cleanup.
 - QA: critical business/API tests and primary journeys; responsive/accessibility review; no claims without executed checks.
 
 ## Branch/issue strategy

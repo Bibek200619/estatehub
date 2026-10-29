@@ -10,7 +10,8 @@ All seeded properties and demo accounts are fictional. The app is a college demo
 - Compare consistent listing cards and review property photos, key facts, amenities and availability.
 - Register/sign in, save favourite homes and send in-app inquiries.
 - Provider dashboard for listing creation, editing, availability and incoming inquiry status.
-- Admin view for users/listings, with reversible listing deactivation.
+- Admin dashboard for listing search/filter, owner-assigned listing creation, reversible deactivation/restoration and permanent deletion.
+- Expanded 30-listing Bengaluru sample inventory spanning 29 neighbourhoods, with apartments, houses, plots and commercial spaces for sale or rent.
 - Responsive layouts for mobile and desktop with keyboard focus states, labeled forms, accessible feedback and reduced-motion support.
 
 ## Technology
@@ -49,7 +50,7 @@ Seeded sign-in accounts (all use the password you set in your local `.env`):
 | Provider | `arjun@estatehub.demo` | Value of `DEMO_SEED_PASSWORD` |
 | Admin | `admin@estatehub.demo` | Value of `DEMO_SEED_PASSWORD` |
 
-Set `DEMO_SEED_PASSWORD` in `.env` to a local password of at least 12 characters before creating seed accounts. The example file leaves it blank so no shared credential is committed. Seeding is idempotent and does not rotate existing passwords. To reset the local demo database, stop the app, remove `data/estatehub.sqlite` and its `-shm`/`-wal` files, then run `npm run seed` again. Do not use sample accounts in a public production environment.
+Set `DEMO_SEED_PASSWORD` in `.env` to a local password of at least 12 characters before creating seed accounts. The example file leaves it blank so no shared credential is committed. Seeding adds missing sample listings without duplicating existing ones or overwriting owner-created content; it does not rotate existing passwords. To reset the local demo database, stop the app, remove `data/estatehub.sqlite` and its `-shm`/`-wal` files, then run `npm run seed` again. Do not use sample accounts in a public production environment.
 
 ## Environment variables
 
@@ -79,9 +80,9 @@ npm start         # Run the API; in production it also serves dist/
 - Properties: `GET /api/properties`, `GET /api/properties/:id`, `GET /api/properties/mine`, `POST /api/properties`, `PATCH /api/properties/:id`, `DELETE /api/properties/:id`
 - Favourites: `GET /api/favourites`, `POST /api/favourites/:id`, `DELETE /api/favourites/:id`
 - Inquiries: `POST /api/properties/:id/inquiries`, `GET /api/inquiries`, `PATCH /api/inquiries/:id`
-- Admin: `GET /api/admin/users`, `GET /api/admin/properties`, `PATCH /api/admin/properties/:id/status`
+- Admin: `GET /api/admin/users`, `GET /api/admin/properties`, `POST /api/admin/properties`, `PATCH /api/admin/properties/:id/status`, `DELETE /api/admin/properties/:id`
 
-The server enforces validation and ownership checks. Property deletion from a provider workspace and admin moderation deactivate records rather than permanently deleting them. Public listing responses omit provider email; interested seekers use the in-app inquiry workflow.
+The server enforces validation and ownership checks. Provider removal and admin deactivation hide listings reversibly. Admin permanent deletion removes the listing and its dependent favourites and inquiries after confirmation. Public listing responses omit provider email; interested seekers use the in-app inquiry workflow.
 
 ## Production build and deployment
 
