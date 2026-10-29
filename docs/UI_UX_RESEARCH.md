@@ -6,6 +6,7 @@
 - React's current documentation describes component-based UI and state-driven interaction; this fits reusable property cards, filters, and role dashboards. [React Quick Start](https://react.dev/learn)
 - React recommends starting new apps with an appropriate framework and notes Create React App is deprecated; Vite is selected as a lean build tool for this client-rendered, same-origin college app. [React: Creating a React App](https://react.dev/learn/creating-a-react-app)
 - Express production guidance emphasizes TLS, input validation, Helmet, secure sessions, dependency hygiene and limiting brute-force authorization attempts. These inform server defaults. [Express security best practices](https://expressjs.com/advanced/best-practice-security/)
+- W3C WCAG 2.2 materials emphasize visible keyboard focus, minimum text contrast, reflow and usable target sizes. These informed focus styling, semantic controls and responsive layout; full conformance still requires a dedicated accessibility audit. [W3C WCAG 2.2 Understanding](https://www.w3.org/WAI/WCAG22/understanding/)
 
 ## Competitive patterns to use carefully
 
@@ -18,7 +19,7 @@ Real-estate portals commonly combine a strong location search, budget/type filte
 - **Layout:** 8px spacing rhythm, 12-column desktop grid, content max width around 1280px, 3/2/1 card columns at desktop/tablet/mobile. Search controls collapse to a filter sheet on narrow screens.
 - **Components:** compact navigation, filter bar and chips, property card with photo/price/status/facts/save action, labeled forms, inline validation, confirmation dialog for destructive actions, skeletons, empty/error states, toast feedback.
 - **Interaction:** visible keyboard focus, semantic landmarks, reduced-motion support, no hover-only actions, controls sized for touch. Subtle transitions only for state feedback.
-- **Accessibility:** labels and errors programmatically associated; heading order; keyboard-operable filters/dialogs; meaningful image alt text; adequate contrast; status not communicated by color alone; respect `prefers-reduced-motion`.
+- **Accessibility:** labels and errors programmatically associated; heading order; keyboard-operable filters and a focus-managed listing dialog; meaningful image alt text; visible focus; status not communicated by color alone; respect `prefers-reduced-motion`.
 
 ## Opportunities specific to EstateHub
 
